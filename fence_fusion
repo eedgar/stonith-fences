@@ -29,6 +29,7 @@ def get_outlets_status(conn, options):
         fail(EC_CONNECTION_LOST)
     except pexpect.TIMEOUT:
         fail(EC_TIMED_OUT)
+    else:
         results = conn.before.splitlines()[2:]
         for line in results:
             file, data = line.split(':', 1)
@@ -42,6 +43,7 @@ def get_outlets_status(conn, options):
         fail(EC_CONNECTION_LOST)
     except pexpect.TIMEOUT:
         fail(EC_TIMED_OUT)
+    else:
         results = conn.before.splitlines()[2:]
 
         for line in results:
@@ -66,6 +68,7 @@ def set_power_status(conn, options):
         fail(EC_CONNECTION_LOST)
     except pexpect.TIMEOUT:
         fail(EC_TIMED_OUT)
+    else:
         results = conn.before.splitlines()[3:]
         for line in results:
             file, data = line.split(':', 1)
